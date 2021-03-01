@@ -1,11 +1,13 @@
 import React from "react"
 import Flashcard from "./Flashcard/Flashcard"
-import RegisterCard from "./RegisterCard/RegisterCard";
-const text = ["front", "back"]
+import RegisterCard from "./RegisterCard/RegisterCard"
 
 const App = () => {
     return(
-        <RegisterCard />
+        <div>
+            <RegisterCard />
+            <Flashcard text={["ahoj", "hi"]}/>
+        </div>
     )
 }
 

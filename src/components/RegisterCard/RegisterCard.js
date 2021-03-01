@@ -2,34 +2,18 @@ import React, {useState} from "react"
 import "./RegisterrCard.css"
 
 const RegisterCard = (props) => {
-
-    const [inputValue, setInputValue] = useState("")
-
+    const [input, setInput] = useState("")
+    const handleClear = () => {
+        setInput("")
+    }
     const handleInputChange = (event) => {
-        setInputValue(event.target.value)
-    }
-
-    const clearInput = () => {
-        setInputValue("")
-    }
-
-    const list = [];
-
-    const handleClick = () => {
-        list.push(inputValue)
-        console.log(list)
-        clearInput()
+        setInput(event.target.value)
     }
 
     return (
         <div>
-            <input type="text" value={inputValue} onChange={handleInputChange}></input>
-            <button onClick={handleClick}>Submit</button>
-            <div>
-                <ul>
-                    {list}
-                </ul>
-            </div>
+            <input type="text" value={input} onChange={handleInputChange} />
+            <button onClick={handleClear}>Clear</button>
         </div>
     )
 }
