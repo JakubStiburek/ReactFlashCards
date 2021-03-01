@@ -3,9 +3,11 @@ import Flashcard from "./Flashcard/Flashcard"
 import RegisterCard from "./RegisterCard/RegisterCard"
 
 const App = () => {
+    const memory = []
+
     return(
         <div>
-            <RegisterCard />
+            <RegisterCard memory={memory}/>
             <Flashcard text={["ahoj", "hi"]}/>
         </div>
     )
