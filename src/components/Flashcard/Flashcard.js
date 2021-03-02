@@ -2,35 +2,43 @@ import React, {useState} from "react"
 
 
 const Flashcard = (props) => {
-    const frontText = props.text[0]
-    const backText = props.text[1]
-    const [side, setSide] = useState(true)
-
+    // Set state on text and front side of the card
+    let [text, setText] = useState(props.text)
+    const [frontSide, setFrontSide] = useState(true)
+    // Click = switch the visible side
     const handleClick = () => {
-        if(side === true){
-            setSide(false)
+        if(frontSide === true){
+            setFrontSide(false)
         }
         else{
-            setSide(true)
+            setFrontSide(true)
         }
     }
-
+    // Context menu click = erase the text
+    // The parent div stays empty
+    const handleErase = (event) => {
+        event.preventDefault()
+        setText("")
+    }
+    // Depending on the visible side set the visible text
     const setFace = () => {
         let face;
-        if(side){
-            face = frontText
+        if(frontSide){
+            face = text[0]
         }
         else{
-            face = backText
+            face = text[1]
         }
         return face
     }
 
     console.log(setFace())
-    console.log(side)
+    console.log(frontSide)
 
     return (
-        <div onClick={handleClick}>{setFace()}</div>
+        <div onClick={handleClick} onContextMenu={handleErase}>
+            <p>{setFace()}</p>
+        </div>
     )
 }
 
