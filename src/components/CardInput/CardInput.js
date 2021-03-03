@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import "./RegisterrCard.css"
 
-const RegisterCard = (props) => {
+const CardInput = (props) => {
     // Get memory from props
     // Set state on input and memory
     const [input, setInput] = useState("")
@@ -30,6 +30,7 @@ const RegisterCard = (props) => {
 
     return (
         <div>
+            <label>{props.label}</label>
             <input type="text" value={input} onChange={handleInputChange} />
             <button onClick={handleSubmit}>Submit</button>
             <button onClick={handleClear}>Clear</button>
@@ -38,4 +39,4 @@ const RegisterCard = (props) => {
     )
 }
 
-export default RegisterCard
+export default CardInput

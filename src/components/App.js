@@ -1,14 +1,15 @@
 import React from "react"
-import Flashcard from "./Flashcard/Flashcard"
-import RegisterCard from "./RegisterCard/RegisterCard"
+import CardInput from "./CardInput/CardInput"
+import FlashcardContainer from "./FlashcardContainer/FlashcardContainer";
 
 const App = () => {
     const memory = []
 
     return(
         <div className="main">
-            <RegisterCard memory={memory}/>
-            <Flashcard text={["ahoj", "hi"]}/>
+            <CardInput memory={memory} label="Front"/>
+            <CardInput memory={memory} label="Back"/>
+            <FlashcardContainer />
         </div>
     )
 }
