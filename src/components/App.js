@@ -6,7 +6,7 @@ const App = () => {
     const memory = []
 
     return(
-        <div>
+        <div className="main">
             <RegisterCard memory={memory}/>
             <Flashcard text={["ahoj", "hi"]}/>
         </div>

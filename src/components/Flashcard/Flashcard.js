@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import "./Flashcard.css"
 
 
 const Flashcard = (props) => {
@@ -36,8 +37,8 @@ const Flashcard = (props) => {
     console.log(frontSide)
 
     return (
-        <div onClick={handleClick} onContextMenu={handleErase}>
-            <p>{setFace()}</p>
+        <div className="flashcard" onClick={handleClick} onContextMenu={handleErase}>
+            <p className="text">{setFace()}</p>
         </div>
     )
 }

@@ -1,0 +1,18 @@
+.flashcard {
+    background-color: #677728;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    min-width: 200px;
+    max-width: max-content;
+    border-radius: 10px;
+    margin: 10px;
+}
+.flashcard:hover {
+    -webkit-box-shadow: 0 0 19px 4px rgba(0,0,0,0.55);
+    box-shadow: 0 0 19px 4px rgba(0,0,0,0.55);
+}
+.text {
+    font-size: 40px;
+}
