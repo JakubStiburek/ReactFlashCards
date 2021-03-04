@@ -1,40 +1,31 @@
 import React, {useState} from "react"
-import "./RegisterrCard.css"
+import "./CardInput.css"
 
 const CardInput = (props) => {
-    // Get memory from props
-    // Set state on input and memory
     const [input, setInput] = useState("")
-    const [memory, setMemory] = useState(props.memory)
-    // Store submitted text in memory then clean the input
-    const handleSubmit = () => {
-        memory.push(input)
-        setMemory(memory)
-        handleClear()
-    }
-    // Clear input
-    const handleClear = () => {
-        setInput("")
-    }
-    // Change input
+    // Change input value
     const handleInputChange = (event) => {
         setInput(event.target.value)
     }
-    // When memory contains items format it to string
-    const formatMemory = () => {
-        if(memory.length > 0) {
-            const newMemory = memory.join(", ")
-            return newMemory.toUpperCase()
-        }
+    // Clear input field
+    const handleClear = () => {
+        setInput("")
+    }
+    // Parent callback - send input data out
+    const sendInput = () => {
+        props.parentCallback(input)
+    }
+    // Trigger submit
+    const handleSubmit = () => {
+        sendInput()
     }
 
     return (
         <div>
             <label>{props.label}</label>
-            <input type="text" value={input} onChange={handleInputChange} />
-            <button onClick={handleSubmit}>Submit</button>
+            <input type="text" value={input} placeholder="front side - back side" onChange={handleInputChange}/>
             <button onClick={handleClear}>Clear</button>
-            {formatMemory()}
+            <button onClick={handleSubmit}>Submit</button>
         </div>
     )
 }
