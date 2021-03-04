@@ -11,6 +11,7 @@ const App = () => {
 
     return(
         <div className="main">
+            <h1 className="header">Make your own flashcards</h1>
             <CardInput label="Enter card text: " parentCallback={getInputData}/>
             {inputData}
             <FlashcardContainer />
