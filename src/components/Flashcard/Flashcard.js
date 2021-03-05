@@ -33,9 +33,6 @@ const Flashcard = (props) => {
         return face
     }
 
-    console.log(setFace())
-    console.log(frontSide)
-
     return (
         <div className="flashcard" onClick={handleClick} onContextMenu={handleErase}>
             <p className="text">{setFace()}</p>
