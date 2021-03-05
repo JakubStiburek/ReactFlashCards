@@ -3,18 +3,18 @@ import "./FlashcardContainer.css"
 import Flashcard from "../Flashcard/Flashcard"
 import AddFlashcard from "../AddFlashcard/AddFlashcard";
 
-const FlashcardContainer = () => {
-    const [emptyCard, setEmptyCard] = useState("")
-    const getEmptyCard = (childData) => {
-        setEmptyCard([emptyCard, childData])
+const FlashcardContainer = (props) => {
+    const [cards, setCards] = useState("")
+    const getCard = (childData) => {
+        setCards([cards, childData])
     }
 
 
     return(
         <div>
-            <AddFlashcard parentCallback={getEmptyCard}/>
-            {emptyCard}
-            <Flashcard text={["ahoj", "hi"]}/>
+            <AddFlashcard parentCallback={getCard} input={props.input}/>
+            {cards}
+            <Flashcard text={{front: "ahoj", back:"hi"}}/>
         </div>
     )
 }

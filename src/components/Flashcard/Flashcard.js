@@ -25,10 +25,10 @@ const Flashcard = (props) => {
     const setFace = () => {
         let face;
         if(frontSide){
-            face = text[0]
+            face = text.front
         }
         else{
-            face = text[1]
+            face = text.back
         }
         return face
     }

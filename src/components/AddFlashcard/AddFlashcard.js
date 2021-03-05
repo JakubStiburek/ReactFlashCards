@@ -1,22 +1,25 @@
-import React from "react"
+import React, {useState} from "react"
 import Flashcard from "../Flashcard/Flashcard";
 
 const AddFlashcard = (props) => {
+    const [input, setInput] = useState({front: "prazdno", back: "empty"})
+
     const handleClick = () => {
         sendCard()
     }
 
-    const makeEmptyCard = () => {
-        return <Flashcard text={["", ""]}/>
+    const makeCard = () => {
+        setInput(props.input)
+        return <Flashcard text={input}/>
     }
 
     const sendCard = () => {
-        props.parentCallback(makeEmptyCard())
+        props.parentCallback(makeCard())
     }
 
     return (
         <div>
-        <button onClick={handleClick}>Empty card</button>
+        <button onClick={handleClick}>Make a card</button>
         </div>
     )
 }

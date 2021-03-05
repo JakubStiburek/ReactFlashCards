@@ -23,7 +23,7 @@ const CardInput = (props) => {
     return (
         <div>
             <label>{props.label}</label>
-            <input type="text" value={input} placeholder="front side - back side" onChange={handleInputChange}/>
+            <input type="text" value={input} placeholder={props.placeholder} onChange={handleInputChange}/>
             <button onClick={handleClear}>Clear</button>
             <button onClick={handleSubmit}>Submit</button>
         </div>
