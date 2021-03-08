@@ -9,12 +9,13 @@ const FlashcardContainer = (props) => {
         setCards([cards, childData])
     }
 
-
     return(
         <div>
             <AddFlashcard parentCallback={getCard} input={props.input}/>
-            {cards}
-            <Flashcard text={{front: "ahoj", back:"hi"}}/>
+            <div id="cards">
+                {cards}
+                <Flashcard text={{front: "ahoj", back:"hi"}}/>
+            </div>
         </div>
     )
 }

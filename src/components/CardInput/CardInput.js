@@ -21,7 +21,7 @@ const CardInput = (props) => {
     }
 
     return (
-        <div>
+        <div className="center">
             <label>{props.label}</label>
             <input type="text" value={input} placeholder={props.placeholder} onChange={handleInputChange}/>
             <button onClick={handleClear}>Clear</button>

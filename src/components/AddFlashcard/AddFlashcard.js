@@ -2,23 +2,18 @@ import React, {useState} from "react"
 import Flashcard from "../Flashcard/Flashcard";
 
 const AddFlashcard = (props) => {
-    const [input, setInput] = useState({front: "prazdno", back: "empty"})
-
+    const [input, setInput] = useState(props.input)
+    //TODO problem se statem, posledni state zustava a udela se karta navic
     const handleClick = () => {
-        sendCard()
-    }
-
-    const makeCard = () => {
         setInput(props.input)
-        return <Flashcard text={input}/>
-    }
-
-    const sendCard = () => {
-        props.parentCallback(makeCard())
+        console.log(props.input)
+        console.log(input)
+        const card = <Flashcard key={input.front} text={input}/>
+        props.parentCallback(card)
     }
 
     return (
-        <div>
+        <div className="center">
         <button onClick={handleClick}>Make a card</button>
         </div>
     )
