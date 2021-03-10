@@ -1,20 +1,21 @@
 import React, {useState} from "react"
 import "./FlashcardContainer.css"
 import Flashcard from "../Flashcard/Flashcard"
-import AddFlashcard from "../AddFlashcard/AddFlashcard";
 
 const FlashcardContainer = (props) => {
     const [cards, setCards] = useState("")
-    const getCard = (childData) => {
-        setCards([cards, childData])
+    const card = <Flashcard key={props.input.front} text={props.input}/>
+    // Add a card with submitted input values
+    const handleClick = () => {
+        setCards([card, cards])
     }
-
     return(
         <div>
-            <AddFlashcard parentCallback={getCard} input={props.input}/>
+            <div className="center">
+                <button onClick={handleClick}>Make a card</button>
+            </div>
             <div id="cards">
                 {cards}
-                <Flashcard text={{front: "ahoj", back:"hi"}}/>
             </div>
         </div>
     )

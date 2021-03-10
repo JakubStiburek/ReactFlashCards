@@ -4,7 +4,6 @@ import "./Flashcard.css"
 
 const Flashcard = (props) => {
     // Set state on text and front side of the card
-    let [text, setText] = useState(props.text)
     const [frontSide, setFrontSide] = useState(true)
     // Click = switch the visible side
     const handleClick = () => {
@@ -19,16 +18,15 @@ const Flashcard = (props) => {
     // The parent div stays empty
     const handleErase = (event) => {
         event.preventDefault()
-        setText("")
     }
     // Depending on the visible side set the visible text
     const setFace = () => {
         let face;
         if(frontSide){
-            face = text.front
+            face = props.text.front
         }
         else{
-            face = text.back
+            face = props.text.back
         }
         return face
     }
