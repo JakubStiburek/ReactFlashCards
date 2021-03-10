@@ -21,6 +21,12 @@ const FlashcardContainer = (props) => {
             <div className="center">
                 <button onClick={handleClick}>Make a card</button>
             </div>
+            <div id="instructions" className="center">
+                <Flashcard key={"info01"} text={{front: "Left click", back: "Turns the card"}} />
+                <Flashcard key={"info02"} text={{front: "Erase it", back: "With right click"}} />
+                <Flashcard key={"info03"} text={{front: "Use the form above", back: "To add your own cards"}} />
+                <Flashcard key={"info04"} text={{front: "And have", back: "fun"}} />
+            </div>
             <div id="cards">
                 {cards}
             </div>

@@ -1,7 +1,10 @@
 #cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    gap: 1rem;
+    gap: 15px;
+}
+#instructions {
+    display: flex;
 }
 #add-card-button {
     margin: auto;
