@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import "./FlashcardContainer.css"
 import Flashcard from "../Flashcard/Flashcard"
 
@@ -9,6 +9,13 @@ const FlashcardContainer = (props) => {
     const handleClick = () => {
         setCards([card, cards])
     }
+    // Clear empty cards after FlashcardContainer is rendered
+    // TODO Finish this functionality
+    const clearEmptyCards = () =>{
+
+    }
+    useEffect(clearEmptyCards)
+
     return(
         <div>
             <div className="center">
