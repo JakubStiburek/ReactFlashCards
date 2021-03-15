@@ -3,11 +3,12 @@ import "./Flashcard.css"
 
 
 const Flashcard = (props) => {
+    console.log(props)
     const [frontSide, setFrontSide] = useState(true)
     const [showCard, setShowCard] = useState(true)
     // Click = switch the visible side
     const handleClick = () => {
-        if(frontSide === true){
+        if(frontSide){
             setFrontSide(false)
         }
         else{
@@ -19,15 +20,16 @@ const Flashcard = (props) => {
     const handleErase = (event) => {
         event.preventDefault()
         setShowCard(false)
+        props.onDelete(props.ID)
     }
     // Depending on the visible side set the visible text
     const setFace = () => {
         let face;
         if(frontSide){
-            face = props.text.front
+            face = props.card.front
         }
         else{
-            face = props.text.back
+            face = props.card.back
         }
         return face
     }
@@ -35,9 +37,9 @@ const Flashcard = (props) => {
     return (
         <div className="card-wrapper">
             {showCard &&
-            <div className="flashcard" onClick={handleClick} onContextMenu={handleErase}>
-                <p className="text">{setFace()}</p>
-            </div>
+                <div className="flashcard" onClick={handleClick} onContextMenu={handleErase}>
+                    <p className="text">{setFace()}</p>
+                </div>
             }
         </div>
     )
